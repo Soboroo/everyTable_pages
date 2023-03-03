@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bulma -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- main.js -->
+</head>
+
+<body>
+    <!--three inputs; identifier, startDate, endDate  -->
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <div class="field">
+                    <label class="label">Identifier</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Identifier" id="identifier" onchange="">
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="field">
+                    <label class="label">Start Date</label>
+                    <div class="control">
+                        <input class="input" type="date" placeholder="Start Date" id="start-date" onchange="">
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="field">
+                    <label class="label">End Date</label>
+                    <div class="control">
+                        <input class="input" type="date" placeholder="End Date" id="end-date" onchange="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- submit button -->
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-link" id="submit-button" onclick="">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>
