@@ -3,14 +3,16 @@ const identifier = document.getElementById('identifier');
 const startDate = document.getElementById('start-date');
 const endDate = document.getElementById('end-date');
 
-submitButton.addEventListener('click', (e) => {
+submitButton.addEventListener('click', async (e) => {
     if (identifier.value && startDate.value && endDate.value) {
-        fetch(`https://sk2the05oe.execute-api.ap-northeast-2.amazonaws.com/Prod/icalGenerate?identifier=${identifier.value}&startDate=${startDate.value}&endDate=${endDate.value}`, {
+        const res = await fetch(`https://sk2the05oe.execute-api.ap-northeast-2.amazonaws.com/Prod/icalGenerate?identifier=${identifier.value}&startDate=${startDate.value}&endDate=${endDate.value}`, {
             method: 'GET',
             headers: {
-                'x-api-key' : 'API_KEY'
+                'x-api-key': 'API_KEY',
+                
             }
         })
+        await download(res);
     } else {
         if (!identifier.value) {
             identifier.classList.add('is-danger');
@@ -39,3 +41,16 @@ const validation = (e) => {
 identifier.addEventListener('change', validation);
 startDate.addEventListener('change', validation);
 endDate.addEventListener('change', validation);
+
+async function download(res) {
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = `${identifier.value}.ics`;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
