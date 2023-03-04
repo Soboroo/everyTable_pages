@@ -8,7 +8,7 @@ submitButton.addEventListener('click', async (e) => {
         const res = await fetch(`https://sk2the05oe.execute-api.ap-northeast-2.amazonaws.com/Prod/icalGenerate?identifier=${identifier.value}&startDate=${startDate.value}&endDate=${endDate.value}`, {
             method: 'GET',
             headers: {
-                'x-api-key': 'API_KEY',
+                'x-api-key': 'Iugaq0Fchb1XFfa3K8ZX917GLXZlJvmi2WQpTX0p',
                 
             }
         })
